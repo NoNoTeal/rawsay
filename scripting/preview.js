@@ -1,20 +1,20 @@
 //do you really expect me to explain shit in comments?
 const colorCodes = {
-    '&4':'dark_red',
+    '&4':'darkred',
     '&c':'red',
     '&6':'gold',
     '&e':'yellow',
     '&a':'green',
-    '&2':'dark_green',
+    '&2':'darkgreen',
     '&b':'aqua',
-    '&3':'dark_aqua',
+    '&3':'darkaqua',
     '&9':'blue',
-    '&1':'dark_blue',
-    '&5':'dark_purple',
-    '&d':'light_purple',
+    '&1':'darkblue',
+    '&5':'darkpurple',
+    '&d':'lightpurple',
     '&f':'white',
     '&7':'gray',
-    '&8':'dark_gray',
+    '&8':'darkgray',
     '&0':'black',
     '&r':'white',
     '&l':'bold',
@@ -28,11 +28,11 @@ function previewClick() {
     var textArea = document.getElementById('input');
     var previewArea = document.getElementById('output');
     if(!textArea.value.length) {
-        previewArea.innerHTML = "<span class=\"red bold italic no_select\">&#60;No Text Provided&#62;</span>";
+        previewArea.innerHTML = "<span class=\"red bold italic noselect\">&#60;No Text Provided&#62;</span>";
         return;
     } else {
         var cleanedArea = colorAlignment(textArea.value);
-        previewArea.className = "chatBox white no_select";
+        previewArea.className = "chatBox white noselect";
 
         var parsed = new DOMParser().parseFromString(cleanedArea, 'text/html');
         parsed = parsed.body.innerHTML;
@@ -65,10 +65,10 @@ function colorAlignment(text) {
         if(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r))/.test(code)) {
             markdown = [];
             lastColor = thisType;
-            text = text.replace(new RegExp(`${code}`), `</span><span class='${lastColor} no_select'>`);
+            text = text.replace(new RegExp(`${code}`), `</span><span class='${lastColor} noselect'>`);
         } else if(/&(?=(l|o|n|m|k))/.test(code)) {
             markdown.push(thisType);
-                text = text.replace(new RegExp(`${code}`), `</span><span class='${lastColor} ${markdown.join(' ')} no_select'>`);
+                text = text.replace(new RegExp(`${code}`), `</span><span class='${lastColor} ${markdown.join(' ')} noselect'>`);
         }
         times = (text.match(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r|l|o|n|m|k))/g) || "").length
     }

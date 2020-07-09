@@ -1,11 +1,35 @@
 //my code might be spaghetti
+const JSONColorCodes = {
+    '&4':'dark_red',
+    '&c':'red',
+    '&6':'gold',
+    '&e':'yellow',
+    '&a':'green',
+    '&2':'dark_green',
+    '&b':'aqua',
+    '&3':'dark_aqua',
+    '&9':'blue',
+    '&1':'dark_blue',
+    '&5':'dark_purple',
+    '&d':'light_purple',
+    '&f':'white',
+    '&7':'gray',
+    '&8':'dark_gray',
+    '&0':'black',
+    '&r':'white',
+    '&l':'bold',
+    '&o':'italic',
+    '&n':'underlined', 
+    '&m':'strikethrough',
+    '&k':'obfuscated'
+};
 
 //but it runs bitch
 function jsonClick() {
     var textArea = document.getElementById('input');
     var previewArea = document.getElementById('json');
     if(!textArea.value.length) {
-        previewArea.innerHTML = "<span class=\"red bold italic no_select\">&#60;No Text Provided&#62;</span>";
+        previewArea.innerHTML = "<span class=\"red bold italic noselect\">&#60;No Text Provided&#62;</span>";
         return;
     } else {
         var cleanedArea = jsonAlignment(textArea.value);
@@ -29,7 +53,7 @@ function jsonAlignment(text) {
     while(times) {
         var index = text.search(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r|l|o|n|m|k))/);
         var code = `${text[index]}${text[index+1]}`;
-        var thisType = colorCodes[code];
+        var thisType = JSONColorCodes[code];
         if(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r))/.test(code)) {
             markdown = [];
             lastColor = thisType;

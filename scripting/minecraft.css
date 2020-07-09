@@ -32,28 +32,28 @@
     text-shadow: 3px 3px #000000;
   }
   
-  .dark_blue {
+  .darkblue {
     color: #0000AA;
     text-shadow: 3px 3px #00002A;
   }
   
-  .dark_green {
+  .darkgreen {
     color: #00AA00;
     text-shadow: 3px 3px #002A00;
   }
 
   
-  .dark_aqua {
+  .darkaqua {
     color: #00AAAA;
     text-shadow: 3px 3px #002A2A;
   }
 
-  .dark_red {
+  .darkred {
     color: #AA0000;
     text-shadow: 3px 3px #2A0000;
   }
   
-  .dark_purple {
+  .darkpurple {
     color: #AA00AA;
     text-shadow: 3px 3px #2A002A;
   }
@@ -68,7 +68,7 @@
     text-shadow: 3px 3px #2A2A2A;
   }
   
-  .dark_gray {
+  .darkgray {
     color: #555555;
     text-shadow: 3px 3px #151515;
   }
@@ -93,7 +93,7 @@
     text-shadow: 3px 3px #3F1515;
   }
 
-  .light_purple {
+  .lightpurple {
     color: #FF55FF;
     text-shadow: 3px 3px #3F153F;
   }
