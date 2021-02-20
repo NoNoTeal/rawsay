@@ -9,7 +9,7 @@
     <h1 class="white bold noselect">/rawsay</h1>
     <h3 class="darkgray bold italic noselect">by xTeal</h3>
     <body class="gray">
-        <span class="noselect">
+        <span class="noselect desc">
         Minecraft Tellraw Generator, like ColorChat, but on a website. 
         For a guide, take a look at the table below for a color code guide. 
         Results may not be accurate, my "tool" is still in beta! 
@@ -175,6 +175,8 @@
 
     <script type="text/javascript" src="scripting/preview.js"></script>
     <script type="text/javascript" src="scripting/json.js"></script>
+    <script type="text/javascript" src="scripting/reverse/toPreview.js"></script>
+    <script type="text/javascript" src="scripting/reverse/toFormat.js"></script>
     <script>
         function makeId(str) {
            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -214,13 +216,9 @@
             if(element.className.includes("greenButton")) fun();
         };
 
-        function rawPaste(id) {
-            
-        };
-
         function CopyToClipboard(id) {
             var range = document.createRange();
-            range.selectNode(id); //changed here
+            range.selectNode(id); 
             window.getSelection().removeAllRanges(); 
             window.getSelection().addRange(range); 
             document.execCommand("copy");
@@ -234,28 +232,65 @@
     <textarea class="chatBox" contenteditable="true" id="input" 
     oninput='this.style.height = "";
     this.style.height = this.scrollHeight + "px";
-    rawPaste(id);
     executeQuestionMark("autoPreviewButton", previewClick);
-    executeQuestionMark("autoJSONButton", jsonClick);'
-    style="font-family: Minecraft;"></textarea>
+    executeQuestionMark("autoJSONButton", jsonClick);'></textarea>
     <h1></h1>
 
     <a class="divider"></a>
     <h1 class="white bold noselect">Preview</h1>
-    <div class="chatBox noselect" id="output" readonly="true" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="font-family: Minecraft;">
+    <div class="chatBox noselect" id="output" readonly="true" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
     </div>
     <a id="previewButton" class="greenButton noselect" onclick="previewClick();"> Preview</a>
     <a id="autoPreviewButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-Preview</a>
-<!--    <a id="copyOutput" class="copyButton noselect" onclick="CopyToClipboard('output');">Copy Output</a> -->
+    <!--    <a id="copyOutput" class="copyButton noselect" onclick="CopyToClipboard('output');">Copy Output</a> -->
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON Code</h1>
-    <div class="chatBox" id="json" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="font-family: 'Courier New', Courier, monospace;"></div>
+    <div class="chatBox" id="json" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    </div>
     <a id="JSONButton" class="greenButton noselect" onclick="jsonClick();">Show JSON</a>
     <a id="autoJSONButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-JSON</a>
-<!--    <a id="copyJSON" class="copyButton noselect" onclick="CopyToClipboard('jsonChatBox');">Copy JSON</a> -->
-<a class="divider"></a>
-<h1 class="white bold noselect">Miscellaneous</h1>
-<a class="copyButton noselect" href="https://github.com/nonoteal/rawsay">Visit The Github!</a>
-<a class="copyButton noselect">Version: 1.0.1 BETA</a>
+    <!--    <a id="copyJSON" class="copyButton noselect" onclick="CopyToClipboard('jsonChatBox');">Copy JSON</a> -->
+
+
+
+
+
+
+
+
+
+
+
+    <hr style="height:3px;visibility: hidden;">
+    <span class="noselect desc">
+      Below here, you can input JSON and reverse it to a more readable form, and convert it to its matching color codes. The JSON has to be valid, or it won't be parsed at all.
+    </span>
+    <h1 class="white bold noselect">Input JSON</h1>
+    <textarea class="chatBox" contenteditable="true" id="jsonInput" 
+    oninput='this.style.height = "";
+    this.style.height = this.scrollHeight + "px";
+    executeQuestionMark("autoPreviewFromJSONButton", toPreview);
+    executeQuestionMark("autoFormatting", toFormat);'></textarea>
+    <h1></h1>
+
+    <a class="divider"></a>
+    <h1 class="white bold noselect">JSON to Preview</h1>
+    <div class="chatBox noselect" id="jsonPreview" readonly="true" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    </div>
+    <a id="previewFromJSONButton" class="greenButton noselect" onclick="toPreview();">JSON Preview</a>
+    <a id="autoPreviewFromJSONButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-JSONPreview</a>
+    <!--    <a id="copyOutput" class="copyButton noselect" onclick="CopyToClipboard('output');">Copy Output</a> -->
+
+    <a class="divider"></a>
+    <h1 class="white bold noselect">JSON to Formatting Text</h1>
+    <div class="chatBox" id="jsonFormatting" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    </div>
+    <a id="FormattingButton" class="greenButton noselect" onclick="toFormat();">Show Formatting</a>
+    <a id="autoFormatting" class="redButton noselect" onclick="toggleClass(id);">Toggle Formatting</a>
+    <!--    <a id="copyJSON" class="copyButton noselect" onclick="CopyToClipboard('jsonChatBox');">Copy JSON</a> -->
+
+    <h1 class="white bold noselect">Miscellaneous</h1>
+    <a class="copyButton noselect" href="https://github.com/nonoteal/rawsay">Visit The Github!</a>
+    <a class="copyButton noselect">Version: 1.0.2 BETA</a>
 </html>

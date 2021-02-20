@@ -11,6 +11,15 @@
     font-family: Minecraft;
     text-align: center;
     background-color: #4f4f4f;
+    width: 99%;
+  }
+
+  div {
+    overflow-wrap: break-all;
+    word-break: break-all; 
+  }
+  .desc {
+    word-wrap: break-word;    
   }
 
   h1,
@@ -136,4 +145,5 @@
     text-align: left;
     resize: none;
     margin: auto;
+    font-family: Minecraft;
   }

@@ -35,8 +35,10 @@ function previewClick() {
         previewArea.className = "chatBox white noselect";
 
         var parsed = new DOMParser().parseFromString(cleanedArea, 'text/html');
-        parsed = parsed.body.innerHTML;
-        previewArea.innerHTML = parsed;
+        var str = "";
+        // method eliminates the weird empty elements (no text), feel free to improve the colorAlignment function itself, which is causing this mess.
+        [...parsed.body.children].forEach(e=>{if(e.innerHTML.length) {str+=e.outerHTML;}})
+        previewArea.innerHTML = str;
         previewArea.style.height = "";
         previewArea.style.height = previewArea.scrollHeight + "px";
     };
@@ -57,7 +59,7 @@ function colorAlignment(text) {
     text = `<span class="white">${text}`;
     var lastColor = "white";
     var markdown = [];
-    var times = (text.match(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r|l|o|n|m|k))/g) || "").length
+    var times = (text.match(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r|l|o|n|m|k))/g) || "").length;
     while(times) {
         var index = text.search(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r|l|o|n|m|k))/);
         var code = `${text[index]}${text[index+1]}`;
@@ -72,6 +74,6 @@ function colorAlignment(text) {
         }
         times = (text.match(/&(?=(4|c|6|e|a|2|b|3|9|1|5|d|f|7|8|0|r|l|o|n|m|k))/g) || "").length
     }
-    text = `${text}</span>`
+    text = `${text}</span>`;
     return text;
 }
