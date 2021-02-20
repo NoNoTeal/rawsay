@@ -17,6 +17,7 @@
   div {
     overflow-wrap: break-all;
     word-break: break-all; 
+    white-space: pre-wrap;
   }
   .desc {
     word-wrap: break-word;    

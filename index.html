@@ -10,15 +10,11 @@
     <h3 class="darkgray bold italic noselect">by xTeal</h3>
     <body class="gray">
         <span class="noselect desc">
-        Minecraft Tellraw Generator, like ColorChat, but on a website. 
-        For a guide, take a look at the table below for a color code guide. 
-        Results may not be accurate, my "tool" is still in beta! 
-        This tool doesn't support hover events, click events, etc.. If you'd 
-        like to actually see those features, fill out an issue on the Github located 
-        at the bottom of the page, followed with syntax that you'd think would work.
+        Minecraft Tellraw Generator, like ColorChat, but on a website. For a guide, take a look at the table below for a color code guide. Results may not be accurate, my "tool" is still in beta!
         <br>
-        Also, I'm not going to be the one responsible for misusage of this site. 
-
+        Custom colors, e.g. the Minecraft 1.16 snapshot hex colors are NOT supported. Only the standard, preset colors are supported. Chat events such as hovering, click events, links won't be supported as well, otherwise serious syntax changes needs to be implemented, or something like https://minecraft.tools/en/tellraw.php or https://minecraftjson.com/ would be made. Just the standard text and text markup will do.
+        <br>
+        Based on a play.creativitium.us.to command :)
         </span>
         <br><br>
         <table>
@@ -235,6 +231,10 @@
     executeQuestionMark("autoPreviewButton", previewClick);
     executeQuestionMark("autoJSONButton", jsonClick);'></textarea>
     <h1></h1>
+    <hr style="height:1px;visibility: hidden;">
+    <span class="noselect desc">
+      Shove in text above, if you want to use color codes, use the section(§) or and(&) character along with the matching color code. You cannot have a style then a color, (&la&6b), then it will result as a bold a and a gold b.
+    </span>
 
     <a class="divider"></a>
     <h1 class="white bold noselect">Preview</h1>
@@ -243,14 +243,22 @@
     <a id="previewButton" class="greenButton noselect" onclick="previewClick();"> Preview</a>
     <a id="autoPreviewButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-Preview</a>
     <!--    <a id="copyOutput" class="copyButton noselect" onclick="CopyToClipboard('output');">Copy Output</a> -->
+    <hr style="height:1px;visibility: hidden;">
+    <span class="noselect desc">
+      Above here, you can preview what your text will look like when you apply it in Minecraft. 
+    </span>
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON Code</h1>
-    <div class="chatBox" id="json" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
-    </div>
+    <textarea class="chatBox" id="json" readonly="true" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    </textarea>
     <a id="JSONButton" class="greenButton noselect" onclick="jsonClick();">Show JSON</a>
     <a id="autoJSONButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-JSON</a>
     <!--    <a id="copyJSON" class="copyButton noselect" onclick="CopyToClipboard('jsonChatBox');">Copy JSON</a> -->
+    <hr style="height:1px;visibility: hidden;">
+    <span class="noselect desc">
+      Above here, you can get the JSON code of your text. If your JSON is too long, use a command block.
+    </span>
 
 
 
@@ -262,7 +270,7 @@
 
 
 
-    <hr style="height:3px;visibility: hidden;">
+    <hr style="height:10px;visibility: hidden;">
     <span class="noselect desc">
       Below here, you can input JSON and reverse it to a more readable form, and convert it to its matching color codes. The JSON has to be valid, or it won't be parsed at all.
     </span>
@@ -273,6 +281,10 @@
     executeQuestionMark("autoPreviewFromJSONButton", toPreview);
     executeQuestionMark("autoFormatting", toFormat);'></textarea>
     <h1></h1>
+    <hr style="height:1px;visibility: hidden;">
+    <span class="noselect desc">
+      Shove in JSON code above, it has to be of a valid JSON format and code that you'd insert into your game and THAT would accept it. 
+    </span>
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON to Preview</h1>
@@ -281,16 +293,23 @@
     <a id="previewFromJSONButton" class="greenButton noselect" onclick="toPreview();">JSON Preview</a>
     <a id="autoPreviewFromJSONButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-JSONPreview</a>
     <!--    <a id="copyOutput" class="copyButton noselect" onclick="CopyToClipboard('output');">Copy Output</a> -->
+    <a class="divider"></a>
+    <hr style="height:1px;visibility: hidden;">
+      Above here, you can preview what your JSON will look like when you apply it in Minecraft. 
+    </span>
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON to Formatting Text</h1>
-    <div class="chatBox" id="jsonFormatting" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
-    </div>
+    <textarea class="chatBox" id="jsonFormatting" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    </textarea>
     <a id="FormattingButton" class="greenButton noselect" onclick="toFormat();">Show Formatting</a>
     <a id="autoFormatting" class="redButton noselect" onclick="toggleClass(id);">Toggle Formatting</a>
     <!--    <a id="copyJSON" class="copyButton noselect" onclick="CopyToClipboard('jsonChatBox');">Copy JSON</a> -->
+    <hr style="height:1px;visibility: hidden;">
+      Above here, you can get the formatting code of your text.
+    </span>
 
     <h1 class="white bold noselect">Miscellaneous</h1>
     <a class="copyButton noselect" href="https://github.com/nonoteal/rawsay">Visit The Github!</a>
-    <a class="copyButton noselect">Version: 1.0.2 BETA</a>
+    <a class="copyButton noselect">Version: 1.0.3 BETA</a>
 </html>
