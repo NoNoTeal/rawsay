@@ -36,8 +36,6 @@ function jsonClick() {
         previewArea.className = "chatBox white";
         cleanedArea = JSON.stringify(cleanedArea, null);
         previewArea.innerText = cleanedArea;
-        previewArea.style.height = "";
-        previewArea.style.height = previewArea.scrollHeight + "px";
     };
 }
 function jsonAlignment(text) {

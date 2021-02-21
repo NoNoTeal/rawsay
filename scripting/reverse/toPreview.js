@@ -22,8 +22,6 @@ function toPreview() {
                     a+=getFromTextObject(p);
                 }
                 previewArea.innerHTML = a;
-                previewArea.style.height = "";
-                previewArea.style.height = previewArea.scrollHeight + "px";
             }
         } else {
             if(!json["text"]) {
@@ -31,8 +29,6 @@ function toPreview() {
                 return;
             } else {
                 previewArea.innerHTML = getFromTextObject(json);
-                previewArea.style.height = "";
-                previewArea.style.height = previewArea.scrollHeight + "px";
             }
         }
     }

@@ -194,6 +194,18 @@
            return "Do you really want to leave this page?\nYour work isn't being saved!";
         };
 
+        window.onload = function() {
+            var tx = document.getElementsByTagName("textarea");
+            if(tx.length) {
+                for(var e of tx) {
+                    e.addEventListener("input", function () {
+                        this.style.height = "auto";
+                        this.style.height = (this.scrollHeight) + "px";
+                    });
+                }
+            }
+        }
+
         function toggleClass(id) {
             var element = document.getElementById(id);
             if(!element) return;
@@ -226,9 +238,7 @@
     <a class="divider"></a>
     <h1 class="white bold noselect">Input Field</h1>
     <textarea class="chatBox" contenteditable="true" id="input" 
-    oninput='this.style.height = "";
-    this.style.height = this.scrollHeight + "px";
-    executeQuestionMark("autoPreviewButton", previewClick);
+    oninput='executeQuestionMark("autoPreviewButton", previewClick);
     executeQuestionMark("autoJSONButton", jsonClick);'></textarea>
     <h1></h1>
     <hr style="height:1px;visibility: hidden;">
@@ -238,7 +248,7 @@
 
     <a class="divider"></a>
     <h1 class="white bold noselect">Preview</h1>
-    <div class="chatBox noselect" id="output" readonly="true" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    <div class="chatBox noselect" id="output" readonly="true">
     </div>
     <a id="previewButton" class="greenButton noselect" onclick="previewClick();"> Preview</a>
     <a id="autoPreviewButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-Preview</a>
@@ -250,7 +260,7 @@
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON Code</h1>
-    <textarea class="chatBox" id="json" readonly="true" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    <textarea class="chatBox" id="json" readonly="true" style=" color: white;">
     </textarea>
     <a id="JSONButton" class="greenButton noselect" onclick="jsonClick();">Show JSON</a>
     <a id="autoJSONButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-JSON</a>
@@ -276,9 +286,7 @@
     </span>
     <h1 class="white bold noselect">Input JSON</h1>
     <textarea class="chatBox" contenteditable="true" id="jsonInput" 
-    oninput='this.style.height = "";
-    this.style.height = this.scrollHeight + "px";
-    executeQuestionMark("autoPreviewFromJSONButton", toPreview);
+    oninput='executeQuestionMark("autoPreviewFromJSONButton", toPreview);
     executeQuestionMark("autoFormatting", toFormat);'></textarea>
     <h1></h1>
     <hr style="height:1px;visibility: hidden;">
@@ -288,7 +296,7 @@
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON to Preview</h1>
-    <div class="chatBox noselect" id="jsonPreview" readonly="true" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    <div class="chatBox noselect" id="jsonPreview" readonly="true">
     </div>
     <a id="previewFromJSONButton" class="greenButton noselect" onclick="toPreview();">JSON Preview</a>
     <a id="autoPreviewFromJSONButton" class="redButton noselect" onclick="toggleClass(id);">Toggle Auto-JSONPreview</a>
@@ -300,7 +308,7 @@
 
     <a class="divider"></a>
     <h1 class="white bold noselect">JSON to Formatting Text</h1>
-    <textarea class="chatBox" id="jsonFormatting" style=" color: white;" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+    <textarea class="chatBox" id="jsonFormatting" style=" color: white;">
     </textarea>
     <a id="FormattingButton" class="greenButton noselect" onclick="toFormat();">Show Formatting</a>
     <a id="autoFormatting" class="redButton noselect" onclick="toggleClass(id);">Toggle Formatting</a>
@@ -311,5 +319,5 @@
 
     <h1 class="white bold noselect">Miscellaneous</h1>
     <a class="copyButton noselect" href="https://github.com/nonoteal/rawsay">Visit The Github!</a>
-    <a class="copyButton noselect">Version: 1.0.3 BETA</a>
+    <a class="copyButton noselect">Version: 1.0.4 BETA</a>
 </html>

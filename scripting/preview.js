@@ -39,8 +39,6 @@ function previewClick() {
         // method eliminates the weird empty elements (no text), feel free to improve the colorAlignment function itself, which is causing this mess.
         [...parsed.body.children].forEach(e=>{if(e.innerHTML.length) {str+=e.outerHTML;}})
         previewArea.innerHTML = str;
-        previewArea.style.height = "";
-        previewArea.style.height = previewArea.scrollHeight + "px";
     };
 }
 function escapeHtml(unsafe) {
